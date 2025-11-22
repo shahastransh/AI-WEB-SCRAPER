@@ -11,7 +11,7 @@ template = (
 )
 
 
-model = OllamaLLM(model = "llama3.1")
+model = OllamaLLM(model = "phi4-mini")
 
 def parse_with_ollama(dom_chunks, parse_description):
     prompt = ChatPromptTemplate.from_template(template)
