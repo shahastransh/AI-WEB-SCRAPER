@@ -6,10 +6,7 @@ Beautiful soup for extracting, cleaning the body content and spliting DOM conten
 I have used ollama - phi4-mini model 
 
 
-Gemini said
-Based on your code, you’ve built a modular AI agent that handles everything from browser automation to intelligent text chunking and LLM-based parsing.
 
-Here is a high-quality GitHub README structure tailored specifically to the logic in your scrape.py, parse.py, and streamlit_app.py.
 
 🤖 AI Web Scraper & Intelligence Engine
 A powerful, modular web scraping tool that leverages LLMs (Ollama/Phi-4-mini) to extract and parse specific data from any website. By combining Selenium for browser automation and LangChain for intelligent orchestration, this tool turns messy HTML into clean, structured information.
