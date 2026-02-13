@@ -4,3 +4,36 @@ I have used;
 Selenium for using webdriver,
 Beautiful soup for extracting, cleaning the body content and spliting DOM content.
 I have used ollama - phi4-mini model 
+
+
+Gemini said
+Based on your code, you’ve built a modular AI agent that handles everything from browser automation to intelligent text chunking and LLM-based parsing.
+
+Here is a high-quality GitHub README structure tailored specifically to the logic in your scrape.py, parse.py, and streamlit_app.py.
+
+🤖 AI Web Scraper & Intelligence Engine
+A powerful, modular web scraping tool that leverages LLMs (Ollama/Phi-4-mini) to extract and parse specific data from any website. By combining Selenium for browser automation and LangChain for intelligent orchestration, this tool turns messy HTML into clean, structured information.
+
+🚀 Features
+Automated Web Navigation: Uses Selenium to launch a headless browser, ensuring JavaScript-heavy sites are fully loaded before extraction.
+
+Intelligent DOM Cleaning: Automatically strips scripts and styles using BeautifulSoup4, reducing noise and optimizing token usage for the LLM.
+
+Context-Aware Parsing: Utilizes LangChain and Phi-4-mini (via Ollama) to extract only the information you describe, ignoring irrelevant data.
+
+Chunking Algorithm: Implements a custom DOM splitting logic to handle large pages without exceeding LLM context limits.
+
+Interactive UI: A clean, user-friendly interface built with Streamlit for real-time scraping and parsing.
+
+🛠️ Tech Stack
+Frontend: Streamlit
+
+Orchestration: LangChain
+
+LLM: Ollama (Phi-4-mini)
+
+Automation: Selenium WebDriver
+
+Parsing: BeautifulSoup4
+
+Language: Python 3.x
