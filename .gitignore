@@ -1,0 +1,4 @@
+chromedriver.exe
+ai/
+__pycache__/
+.env

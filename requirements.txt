@@ -1,9 +1,11 @@
-streamlit 
-langchain 
-langchain_ollama
+streamlit
 selenium
+webdriver-manager
 beautifulsoup4
-lxml 
+lxml
 html5lib
 python-dotenv
 capsolver
+langchain
+langchain-groq
+langchain-core
