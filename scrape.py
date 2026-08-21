@@ -1,26 +1,49 @@
+import os
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 
-def scrape_website(website):
-    print("Launching chrome browser...")
-
+def get_driver():
     options = webdriver.ChromeOptions()
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
+    options.add_argument("--disable-features=NetworkService")
+    options.add_argument("--window-size=1920x1080")
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=options
-    )
+    # Use Linux system Chromium on Streamlit Cloud if present
+    if os.path.exists("/usr/bin/chromium") or os.path.exists(
+        "/usr/bin/chromium-browser"
+    ):
+        options.binary_location = (
+            "/usr/bin/chromium"
+            if os.path.exists("/usr/bin/chromium")
+            else "/usr/bin/chromium-browser"
+        )
+        service = (
+            Service("/usr/bin/chromedriver")
+            if os.path.exists("/usr/bin/chromedriver")
+            else Service()
+        )
+        return webdriver.Chrome(service=service, options=options)
+
+    # Local fallback
+    return webdriver.Chrome(options=options)
+
+
+def scrape_website(website):
+    # Ensure URL has scheme
+    if not website.startswith(("http://", "https://")):
+        website = f"https://{website}"
+
+    print(f"Scraping: {website}")
+    driver = get_driver()
 
     try:
         driver.get(website)
-        print("Page Loaded...")
         time.sleep(3)
         html = driver.page_source
         return html
@@ -31,9 +54,7 @@ def scrape_website(website):
 def extract_body_content(html_content):
     soup = BeautifulSoup(html_content, "html.parser")
     body_content = soup.body
-    if body_content:
-        return str(body_content)
-    return ""
+    return str(body_content) if body_content else ""
 
 
 def clean_body_content(body_content):
